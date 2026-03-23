@@ -2,118 +2,164 @@ export default function TorontoSkyline() {
   return (
     <svg
       className="skyline"
-      viewBox="0 0 1200 280"
+      viewBox="0 0 1200 300"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMax meet"
       aria-hidden="true"
     >
       <defs>
         <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#4D9FFF" stopOpacity="0.12" />
+          <stop offset="0%" stopColor="#4D9FFF" stopOpacity="0.10" />
           <stop offset="100%" stopColor="#4D9FFF" stopOpacity="0.02" />
         </linearGradient>
         <linearGradient id="buildingGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#1a2535" stopOpacity="0.9" />
+          <stop offset="0%" stopColor="#1a2535" stopOpacity="0.95" />
+          <stop offset="100%" stopColor="#0d1117" stopOpacity="1" />
+        </linearGradient>
+        <linearGradient id="towerGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#1e2d40" stopOpacity="1" />
           <stop offset="100%" stopColor="#0d1117" stopOpacity="1" />
         </linearGradient>
         <filter id="glow">
-          <feGaussianBlur stdDeviation="2" result="blur" />
+          <feGaussianBlur stdDeviation="2.5" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+        <filter id="softglow">
+          <feGaussianBlur stdDeviation="6" result="blur" />
           <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
         </filter>
       </defs>
 
       {/* Sky wash */}
-      <rect x="0" y="0" width="1200" height="280" fill="url(#skyGrad)" />
+      <rect x="0" y="0" width="1200" height="300" fill="url(#skyGrad)" />
 
-      {/* ── Background buildings (right cluster) ── */}
-      <rect x="820" y="140" width="28" height="140" fill="url(#buildingGrad)" opacity="0.5" />
-      <rect x="852" y="120" width="22" height="160" fill="url(#buildingGrad)" opacity="0.5" />
-      <rect x="878" y="150" width="30" height="130" fill="url(#buildingGrad)" opacity="0.5" />
-      <rect x="912" y="130" width="25" height="150" fill="url(#buildingGrad)" opacity="0.5" />
-      <rect x="940" y="160" width="35" height="120" fill="url(#buildingGrad)" opacity="0.5" />
-      <rect x="978" y="110" width="20" height="170" fill="url(#buildingGrad)" opacity="0.5" />
-      <rect x="1000" y="140" width="40" height="140" fill="url(#buildingGrad)" opacity="0.5" />
-      <rect x="1044" y="125" width="28" height="155" fill="url(#buildingGrad)" opacity="0.5" />
-      <rect x="1075" y="155" width="32" height="125" fill="url(#buildingGrad)" opacity="0.5" />
-      <rect x="1110" y="135" width="24" height="145" fill="url(#buildingGrad)" opacity="0.5" />
-      <rect x="1138" y="165" width="40" height="115" fill="url(#buildingGrad)" opacity="0.5" />
+      {/* ─── LEFT CLUSTER ─── */}
+      {/* Far left small buildings */}
+      <rect x="20" y="220" width="25" height="80" fill="url(#buildingGrad)" opacity="0.5" />
+      <rect x="48" y="200" width="20" height="100" fill="url(#buildingGrad)" opacity="0.5" />
+      <rect x="71" y="215" width="28" height="85" fill="url(#buildingGrad)" opacity="0.55" />
+      <rect x="102" y="195" width="22" height="105" fill="url(#buildingGrad)" opacity="0.6" />
+      <rect x="127" y="210" width="18" height="90" fill="url(#buildingGrad)" opacity="0.55" />
 
-      {/* ── Background buildings (left cluster) ── */}
-      <rect x="50" y="170" width="30" height="110" fill="url(#buildingGrad)" opacity="0.4" />
-      <rect x="85" y="145" width="22" height="135" fill="url(#buildingGrad)" opacity="0.4" />
-      <rect x="112" y="165" width="28" height="115" fill="url(#buildingGrad)" opacity="0.4" />
-      <rect x="144" y="150" width="20" height="130" fill="url(#buildingGrad)" opacity="0.4" />
-      <rect x="168" y="170" width="35" height="110" fill="url(#buildingGrad)" opacity="0.4" />
-
-      {/* ── Mid buildings ── */}
-      {/* Scotia Plaza */}
-      <rect x="310" y="90" width="42" height="190" fill="url(#buildingGrad)" opacity="0.85" />
-      <rect x="316" y="82" width="30" height="16" fill="url(#buildingGrad)" opacity="0.85" />
-      {/* First Canadian Place */}
-      <rect x="368" y="60" width="38" height="220" fill="url(#buildingGrad)" opacity="0.9" />
-      <rect x="373" y="52" width="28" height="14" fill="url(#buildingGrad)" opacity="0.9" />
-      {/* Commerce Court */}
-      <rect x="420" y="105" width="44" height="175" fill="url(#buildingGrad)" opacity="0.8" />
-      {/* Bay Adelaide */}
-      <rect x="478" y="80" width="36" height="200" fill="url(#buildingGrad)" opacity="0.85" />
-      <polygon points="478,80 514,80 496,62" fill="url(#buildingGrad)" opacity="0.85" />
-      {/* RBC */}
-      <rect x="528" y="98" width="40" height="182" fill="url(#buildingGrad)" opacity="0.8" />
-      {/* CIBC Square */}
-      <rect x="585" y="72" width="45" height="208" fill="url(#buildingGrad)" opacity="0.9" />
-      <rect x="590" y="64" width="35" height="12" fill="url(#buildingGrad)" opacity="0.9" />
-      {/* TD Tower */}
-      <rect x="645" y="85" width="40" height="195" fill="url(#buildingGrad)" opacity="0.85" />
-      {/* Brookfield Place */}
-      <rect x="700" y="100" width="48" height="180" fill="url(#buildingGrad)" opacity="0.8" />
-      <rect x="705" y="92" width="38" height="12" fill="url(#buildingGrad)" opacity="0.8" />
-      {/* Misc right */}
-      <rect x="762" y="118" width="34" height="162" fill="url(#buildingGrad)" opacity="0.75" />
-      <rect x="800" y="132" width="28" height="148" fill="url(#buildingGrad)" opacity="0.7" />
-
-      {/* ── CN Tower ── */}
-      {/* Base legs */}
-      <polygon points="218,280 228,180 236,280" fill="url(#buildingGrad)" opacity="1" />
-      <polygon points="258,280 268,180 278,280" fill="url(#buildingGrad)" opacity="1" />
-      {/* Main shaft */}
-      <rect x="231" y="40" width="34" height="240" fill="url(#buildingGrad)" opacity="1" />
-      {/* Pod */}
-      <rect x="218" y="110" width="60" height="28" rx="4" fill="#131b26" opacity="1" />
-      <rect x="222" y="106" width="52" height="8" rx="2" fill="#1a2535" opacity="1" />
-      {/* Neck above pod */}
-      <rect x="234" y="40" width="28" height="72" fill="url(#buildingGrad)" opacity="1" />
+      {/* Left mid buildings */}
+      <rect x="148" y="175" width="30" height="125" fill="url(#buildingGrad)" opacity="0.7" />
+      <rect x="148" y="165" width="30" height="14" fill="url(#buildingGrad)" opacity="0.7" />
       {/* Antenna */}
-      <rect x="246" y="2" width="4" height="42" fill="#1a2535" opacity="0.9" />
-      {/* Antenna tip glow */}
-      <circle cx="248" cy="4" r="2.5" fill="#4D9FFF" opacity="0.9" filter="url(#glow)" />
-      <circle cx="248" cy="4" r="1.2" fill="#a0d4ff" opacity="1" />
+      <rect x="161" y="148" width="2" height="18" fill="url(#buildingGrad)" opacity="0.7" />
 
-      {/* ── Window lights scattered across buildings ── */}
+      <rect x="181" y="155" width="35" height="145" fill="url(#buildingGrad)" opacity="0.75" />
+      {/* Stepped top */}
+      <rect x="185" y="145" width="27" height="14" fill="url(#buildingGrad)" opacity="0.75" />
+      <rect x="189" y="136" width="19" height="12" fill="url(#buildingGrad)" opacity="0.75" />
+
+      <rect x="219" y="170" width="28" height="130" fill="url(#buildingGrad)" opacity="0.7" />
+      <rect x="250" y="160" width="22" height="140" fill="url(#buildingGrad)" opacity="0.72" />
+      <rect x="250" y="150" width="22" height="14" fill="url(#buildingGrad)" opacity="0.72" />
+
+      <rect x="275" y="140" width="40" height="160" fill="url(#buildingGrad)" opacity="0.8" />
+      <rect x="279" y="128" width="32" height="16" fill="url(#buildingGrad)" opacity="0.8" />
+      <rect x="283" y="118" width="24" height="14" fill="url(#buildingGrad)" opacity="0.8" />
+      {/* Antenna */}
+      <rect x="294" y="100" width="2" height="20" fill="url(#buildingGrad)" opacity="0.8" />
+
+      <rect x="318" y="155" width="32" height="145" fill="url(#buildingGrad)" opacity="0.75" />
+      <rect x="353" y="165" width="26" height="135" fill="url(#buildingGrad)" opacity="0.72" />
+      <rect x="382" y="148" width="38" height="152" fill="url(#buildingGrad)" opacity="0.78" />
+      <rect x="386" y="136" width="30" height="16" fill="url(#buildingGrad)" opacity="0.78" />
+
+      <rect x="423" y="130" width="44" height="170" fill="url(#buildingGrad)" opacity="0.82" />
+      <rect x="427" y="118" width="36" height="16" fill="url(#buildingGrad)" opacity="0.82" />
+      <rect x="431" y="108" width="28" height="13" fill="url(#buildingGrad)" opacity="0.82" />
+      {/* Antenna */}
+      <rect x="444" y="90" width="2" height="20" fill="url(#buildingGrad)" opacity="0.82" />
+
+      <rect x="470" y="145" width="36" height="155" fill="url(#buildingGrad)" opacity="0.78" />
+      <rect x="509" y="125" width="42" height="175" fill="url(#buildingGrad)" opacity="0.85" />
+      <rect x="513" y="113" width="34" height="16" fill="url(#buildingGrad)" opacity="0.85" />
+
+      {/* ─── CN TOWER (CENTER) ─── */}
+      {/* Slim straight base - slightly tapered */}
+      <polygon points="583,300 592,175 608,175 617,300" fill="url(#towerGrad)" opacity="1" />
+      {/* Main shaft - slim and tall */}
+      <rect x="595" y="45" width="10" height="132" fill="url(#towerGrad)" opacity="1" />
+      {/* Pod lower ring */}
+      <ellipse cx="600" cy="110" rx="26" ry="8" fill="#0f1c2e" opacity="1" />
+      {/* Pod main body */}
+      <rect x="576" y="96" width="48" height="18" rx="2" fill="#111e2e" opacity="1" />
+      {/* Pod upper rim */}
+      <ellipse cx="600" cy="96" rx="22" ry="6" fill="#162030" opacity="1" />
+      {/* Pod window lights */}
+      {[580,588,596,604,612,620].map((x, i) => (
+        <rect key={i} x={x} y="101" width="3" height="4" rx="1" fill="#4D9FFF" opacity="0.28" />
+      ))}
+      {/* Pod highlight ring */}
+      <ellipse cx="600" cy="96" rx="22" ry="4" fill="none" stroke="#4D9FFF" strokeWidth="0.8" opacity="0.35" />
+      {/* Shaft above pod - long section below needle */}
+      <rect x="596" y="45" width="8" height="53" fill="url(#towerGrad)" opacity="1" />
+      {/* Needle - long and sharp */}
+      <polygon points="599,45 600,4 601,45" fill="#162030" opacity="1" />
+      {/* Needle tip glow */}
+      <circle cx="600" cy="5" r="2.5" fill="#4D9FFF" opacity="0.95" filter="url(#glow)" />
+      <circle cx="600" cy="5" r="1.2" fill="#a0d4ff" opacity="1" />
+      {/* Subtle tower glow */}
+      <ellipse cx="600" cy="108" rx="40" ry="15" fill="#4D9FFF" opacity="0.04" filter="url(#softglow)" />
+
+      {/* ─── RIGHT CLUSTER ─── */}
+      <rect x="651" y="125" width="42" height="175" fill="url(#buildingGrad)" opacity="0.85" />
+      <rect x="655" y="113" width="34" height="16" fill="url(#buildingGrad)" opacity="0.85" />
+
+      <rect x="696" y="145" width="36" height="155" fill="url(#buildingGrad)" opacity="0.78" />
+      <rect x="735" y="128" width="40" height="172" fill="url(#buildingGrad)" opacity="0.82" />
+      <rect x="739" y="116" width="32" height="16" fill="url(#buildingGrad)" opacity="0.82" />
+      <rect x="743" y="106" width="24" height="13" fill="url(#buildingGrad)" opacity="0.82" />
+      {/* Antenna */}
+      <rect x="754" y="88" width="2" height="20" fill="url(#buildingGrad)" opacity="0.82" />
+
+      <rect x="778" y="148" width="38" height="152" fill="url(#buildingGrad)" opacity="0.78" />
+      <rect x="782" y="136" width="30" height="16" fill="url(#buildingGrad)" opacity="0.78" />
+
+      <rect x="819" y="165" width="26" height="135" fill="url(#buildingGrad)" opacity="0.72" />
+      <rect x="848" y="155" width="32" height="145" fill="url(#buildingGrad)" opacity="0.75" />
+
+      <rect x="883" y="130" width="44" height="170" fill="url(#buildingGrad)" opacity="0.82" />
+      <rect x="887" y="118" width="36" height="16" fill="url(#buildingGrad)" opacity="0.82" />
+      <rect x="891" y="108" width="28" height="13" fill="url(#buildingGrad)" opacity="0.82" />
+      {/* Antenna */}
+      <rect x="904" y="90" width="2" height="20" fill="url(#buildingGrad)" opacity="0.82" />
+
+      <rect x="930" y="148" width="36" height="152" fill="url(#buildingGrad)" opacity="0.75" />
+      <rect x="969" y="140" width="35" height="160" fill="url(#buildingGrad)" opacity="0.78" />
+      <rect x="973" y="128" width="27" height="16" fill="url(#buildingGrad)" opacity="0.78" />
+
+      <rect x="1007" y="155" width="28" height="145" fill="url(#buildingGrad)" opacity="0.72" />
+      <rect x="1038" y="170" width="30" height="130" fill="url(#buildingGrad)" opacity="0.7" />
+      <rect x="1038" y="158" width="30" height="16" fill="url(#buildingGrad)" opacity="0.7" />
+      {/* Antenna */}
+      <rect x="1052" y="142" width="2" height="18" fill="url(#buildingGrad)" opacity="0.7" />
+
+      <rect x="1071" y="175" width="22" height="125" fill="url(#buildingGrad)" opacity="0.65" />
+      <rect x="1096" y="190" width="28" height="110" fill="url(#buildingGrad)" opacity="0.6" />
+      <rect x="1127" y="205" width="20" height="95" fill="url(#buildingGrad)" opacity="0.55" />
+      <rect x="1150" y="215" width="25" height="85" fill="url(#buildingGrad)" opacity="0.5" />
+      <rect x="1178" y="225" width="22" height="75" fill="url(#buildingGrad)" opacity="0.45" />
+
+      {/* ─── Window lights ─── */}
       {[
-        [320,100],[325,115],[330,130],[322,145],[328,160],
-        [375,70],[380,85],[385,100],[378,118],[382,133],
-        [432,118],[437,133],[442,148],[435,163],
-        [486,92],[491,107],[484,124],[489,140],
-        [536,110],[541,125],[546,140],[538,155],
-        [593,82],[598,97],[603,112],[596,128],[601,143],
-        [652,97],[657,112],[662,127],[655,143],
-        [708,112],[713,127],[718,142],[711,158],
-        [768,128],[773,143],[766,158],
+        [158,178],[163,193],[170,208],
+        [190,158],[195,173],[188,190],
+        [284,143],[290,158],[284,174],
+        [432,133],[438,148],[432,164],
+        [516,128],[522,143],[516,160],
+        [658,128],[664,143],[658,160],
+        [742,132],[748,147],[742,164],
+        [890,133],[896,148],[890,165],
+        [976,143],[982,158],[976,175],
       ].map(([x, y], i) => (
-        <rect
-          key={i}
-          x={x} y={y}
-          width="3" height="2"
-          fill="#4D9FFF"
-          opacity={0.15 + (i % 4) * 0.1}
-        />
+        <rect key={i} x={x} y={y} width="3" height="2" fill="#4D9FFF" opacity={0.12 + (i % 3) * 0.07} />
       ))}
 
       {/* Ground line */}
-      <rect x="0" y="278" width="1200" height="2" fill="var(--border)" opacity="0.6" />
-
-      {/* Water reflection shimmer */}
-      <rect x="0" y="270" width="1200" height="10" fill="url(#skyGrad)" opacity="0.3" />
+      <rect x="0" y="298" width="1200" height="2" fill="#4D9FFF" opacity="0.08" />
     </svg>
   );
 }
