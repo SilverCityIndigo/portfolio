@@ -3,35 +3,36 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 
 /* ── Hero ── */
 .hero {
-  flex: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 48px;
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: calc(var(--nav-h) + 100px) 32px 60px;
+  padding: calc(var(--nav-h) + 72px) 32px 40px;
   width: 100%;
   position: relative;
+  z-index: 1;
 }
 
 .heroContent {
   flex: 1;
-  max-width: 580px;
+  max-width: 560px;
   z-index: 1;
 }
 
 /* ── Title ── */
 .title {
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(2.8rem, 6.5vw, 5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.05;
-  margin: 12px 0 24px;
+  margin: 10px 0 20px;
   color: var(--text);
 }
 
@@ -43,29 +44,29 @@
 .titleAccent::after {
   content: '';
   position: absolute;
-  bottom: 4px;
+  bottom: 3px;
   left: 0;
   right: 0;
   height: 2px;
   background: var(--accent);
-  opacity: 0.3;
+  opacity: 0.25;
   border-radius: 2px;
   box-shadow: 0 0 12px var(--accent);
 }
 
 /* ── Subtitle ── */
 .subtitle {
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: 15px;
+  line-height: 1.75;
   color: var(--text-muted);
-  margin-bottom: 44px;
-  max-width: 48ch;
+  margin-bottom: 36px;
+  max-width: 46ch;
 }
 
 /* ── CTA ── */
 .cta {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -74,9 +75,9 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  padding: 14px 28px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  padding: 12px 24px;
   background: var(--accent);
   color: #080a0f;
   font-weight: 500;
@@ -103,9 +104,9 @@
   display: inline-flex;
   align-items: center;
   font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.06em;
-  padding: 14px 28px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  padding: 12px 24px;
   background: transparent;
   color: var(--text-muted);
   border: 1px solid var(--border-mid);
@@ -123,8 +124,8 @@
 /* ── Grid decoration ── */
 .gridDeco {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: 280px;
+  height: 280px;
   flex-shrink: 0;
 }
 
@@ -134,7 +135,7 @@
   background-image:
     linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-size: 28px 28px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-mid);
   mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
@@ -144,7 +145,7 @@
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 180px; height: 180px;
+  width: 160px; height: 160px;
   background: radial-gradient(circle, rgba(77, 159, 255, 0.12) 0%, transparent 70%);
   border-radius: 50%;
   animation: pulse 4s ease-in-out infinite;
@@ -159,7 +160,8 @@
 .skylineWrap {
   position: relative;
   width: 100%;
-  margin-top: auto;
+  margin-top: 0;
+  flex-shrink: 0;
 }
 
 .skylineWrap :global(.skyline) {
@@ -173,8 +175,8 @@
   background: linear-gradient(
     to bottom,
     var(--bg) 0%,
-    transparent 20%,
-    transparent 70%,
+    transparent 15%,
+    transparent 65%,
     var(--bg) 100%
   );
   pointer-events: none;
@@ -185,7 +187,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 32px;
+  padding: 28px 32px;
   border-top: 1px solid var(--border);
   max-width: var(--max-w);
   margin: 0 auto;
@@ -197,12 +199,12 @@
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding: 0 48px;
+  padding: 0 40px;
 }
 
 .statValue {
   font-family: var(--font-mono);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--text);
   letter-spacing: 0.04em;
@@ -218,7 +220,7 @@
 
 .statDivider {
   width: 1px;
-  height: 32px;
+  height: 28px;
   background: var(--border);
   flex-shrink: 0;
 }
@@ -226,11 +228,11 @@
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .gridDeco { display: none; }
-  .hero { padding-top: calc(var(--nav-h) + 72px); }
-  .stat { padding: 0 24px; }
+  .hero { padding-top: calc(var(--nav-h) + 52px); padding-bottom: 24px; }
+  .stat { padding: 0 20px; }
 }
 
 @media (max-width: 480px) {
-  .stats { flex-wrap: wrap; gap: 24px; }
+  .stats { flex-wrap: wrap; gap: 20px; }
   .statDivider { display: none; }
 }

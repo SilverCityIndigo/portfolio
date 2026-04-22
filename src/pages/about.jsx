@@ -28,8 +28,7 @@ export default function About() {
               of Waterloo. My current career passion lies in the intersection of data and product. I am particularly drawn to Data Science and the FinTech industry. 
             </p>
             <p>
-              Outside of my aspiring professional career, I enjoy performing and listening to music (I play Piano), playing and watching sports (Go Raptors, Go Chelsea!)
-              and playing chess. As a former professional player and coach, I am a big advocate for chess as a physical and mental sport. 
+              Beyond my professional pursuits, 
             </p>
             <p>
               
