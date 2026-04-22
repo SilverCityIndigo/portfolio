@@ -27,8 +27,8 @@ export default function Home() {
             </span>
 
             <h1 className={`${styles.title} reveal reveal-2`}>
-              Building things<br />
-              <span className={styles.titleAccent}>that matter.</span>
+               Every position has<br />
+              <span className={styles.titleAccent}>a best move.</span>
             </h1>
 
             <p className={`${styles.subtitle} reveal reveal-3`}>
